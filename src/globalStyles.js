@@ -11,11 +11,11 @@ export const GlobalStyle = createGlobalStyle`
 
 :root{
 --main-text-color: #121417;
---active-color: #F4C550;
+--active-color: #9FB7CE;
 --transition: 250ms ease-in-out;
 --color-text-content: #8A8A89;
---button-background-color: #f4c550;
---active-button-background-color: #FFDC86;
+--button-background-color: #9FB7CE;
+--active-button-background-color: #BFD6EA;
 }
 
 body{

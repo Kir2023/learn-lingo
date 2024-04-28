@@ -1,10 +1,13 @@
-import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
+// import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 // import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
     // <NotFoundPage />
-    <FavoritesPage />
+    // <FavoritesPage />
+    <HomePage />
   );
 }
 

@@ -79,7 +79,7 @@ export const Register = () => {
               ) : null}
             </InputWrapper>
             <Button type="submit" disabled={isSubmitting}>
-              Submit
+              Sign Up
             </Button>
           </Form>
         )}

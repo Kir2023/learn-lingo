@@ -60,7 +60,7 @@ svg{
   }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #F4C550;
+    background-color: var(--button-background-color);
     border-radius: 15px;
   }
 

@@ -1,18 +1,29 @@
-// import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
-// import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import HomePage from "./pages/HomePage/HomePage";
-// import TeachersPage from "./pages/TeachersPage/TeachersPage";
-// import { Login } from "./components/AuthForm/LoginForm";
-// import { Register } from "./components/AuthForm/RegisterForm";
+import { Loader } from "./components/Loader/Loader";
+import { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+const Layout = lazy(() => import("./components/Layout/Layout"));
+const Home = lazy(() => import("./pages/HomePage/HomePage"));
+const Teachers = lazy(() => import("./pages/TeachersPage/TeachersPage"));
+const Favorite = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
   return (
-    // <NotFoundPage />
-    // <FavoritesPage />
-    <HomePage />
-    // <TeachersPage />
-    // <Login />
-    // <Register />
+    <>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="teachers" element={<Teachers />} />
+            <Route path="favorite" element={<Favorite />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
+      <ToastContainer />
+    </>
   );
 }
 

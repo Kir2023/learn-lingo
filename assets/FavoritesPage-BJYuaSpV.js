@@ -1,4 +1,4 @@
-import{u as e,j as t,C as o}from"./index-BIWYxzE1.js";const r=e.h1`
+import{u as e,j as t,C as o}from"./index-A3urDQJ5.js";const r=e.h1`
   text-align: center;
   color: var(--main-text-color);
   font-size: 26px;

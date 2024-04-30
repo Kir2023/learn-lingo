@@ -1,4 +1,4 @@
-import{u as o,j as t,C as n}from"./index-BXpD-aFt.js";const s="/learn-lingo/assets/404-CkTyPJHB.png",a=o.section``,e=o.img`
+import{u as o,j as t,C as n}from"./index-BkuReTYW.js";const s="/learn-lingo/assets/404-CkTyPJHB.png",a=o.section``,e=o.img`
   position: absolute;
   max-width: 100%;
   height: auto;

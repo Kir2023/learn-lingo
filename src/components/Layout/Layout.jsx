@@ -1,7 +1,9 @@
+/* eslint-disable no-useless-catch */
+
 import { Container } from "../../globalStyles";
 import { Outlet } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import ukraine from "../../assets/images/ukraine.jpg";
 import {
   ButtonLogin,
@@ -21,11 +23,38 @@ import { useModal } from "../../helpers/useModal";
 import { ModalComponent } from "../../components/Modal/Modal";
 import { Register } from "../../components/AuthForm/RegisterForm";
 import { Login } from "../../components/AuthForm/LoginForm";
-import { useSelector } from "react-redux";
+import { auth } from "../../config/firebase-config";
+import { signOut } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteToken } from "../../redux/sliceAuth";
 
 const Layout = () => {
   const { isOpen, openModal, closeModal } = useModal();
+  const [user, setUser] = useState(null);
   const authUser = useSelector((state) => state.authUser.token);
+  const dispatch = useDispatch();
+
+  const clickLogOut = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+
+      dispatch(deleteToken());
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    auth.onAuthStateChanged((maybeUser) => {
+      const user = auth.currentUser;
+
+      if (authUser || user) {
+        return setUser(maybeUser);
+      }
+      return;
+    });
+  }, [authUser]);
 
   return (
     <>
@@ -63,7 +92,7 @@ const Layout = () => {
                 <li>
                   <ButtonLogin type="button" onClick={() => openModal("login")}>
                     <span>
-                      <FiLogIn stroke="var(--button-background-color)" />
+                      <FiLogIn />
                     </span>
                     Log in
                   </ButtonLogin>
@@ -73,10 +102,15 @@ const Layout = () => {
                     type="button"
                     onClick={() => openModal("register")}
                   >
-                    Registration
+                    Register
                   </ButtonRegister>
                 </li>
               </WrapperAut>
+            )}
+            {authUser && user && (
+              <ButtonRegister type="button" onClick={clickLogOut}>
+                Log out
+              </ButtonRegister>
             )}
           </HeaderContainer>
         </Container>

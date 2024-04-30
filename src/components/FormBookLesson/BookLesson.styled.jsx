@@ -13,7 +13,7 @@ export const Section = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #fbe9ba;
+    background-color: var(--button-background-color);
     border-radius: 15px;
   }
   @media screen and (min-width: 500px) {

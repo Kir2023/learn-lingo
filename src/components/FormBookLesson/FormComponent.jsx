@@ -90,7 +90,7 @@ export const FormComponent = ({ languages }) => {
                       sx={{
                         color: "#12141733",
                         "&.Mui-checked": {
-                          color: "#F4C550",
+                          color: "var(--button-background-color)",
                         },
                       }}
                     />

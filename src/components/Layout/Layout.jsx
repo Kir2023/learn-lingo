@@ -92,7 +92,7 @@ const Layout = () => {
                 <li>
                   <ButtonLogin type="button" onClick={() => openModal("login")}>
                     <span>
-                      <FiLogIn />
+                      <FiLogIn stroke="var(--button-background-color)" />
                     </span>
                     Log in
                   </ButtonLogin>
@@ -102,7 +102,7 @@ const Layout = () => {
                     type="button"
                     onClick={() => openModal("register")}
                   >
-                    Register
+                    Registration
                   </ButtonRegister>
                 </li>
               </WrapperAut>

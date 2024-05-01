@@ -82,7 +82,7 @@ const Layout = () => {
                 </li>
                 {authUser && (
                   <li>
-                    <Navigate to="favorite">Favorite</Navigate>
+                    <Navigate to="favorite">Favorites</Navigate>
                   </li>
                 )}
               </List>

@@ -2,17 +2,25 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+const AUTHDOMAIN = import.meta.env.VITE_AUTH_DOMAIN;
+const PROJECTID = import.meta.env.VITE_PROJECT_ID;
+const STORAGEBUCKET = import.meta.env.VITE_STORAGE_BUCKET;
+const MESSAGINGSENDERID = import.meta.env.VITE_MESSAGING_SENDER_ID;
+const APPID = import.meta.env.VITE_APP_ID;
+const DATABASEURL = import.meta.env.VITE_DATABASE_URL;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDx2zsvJDlm6oZxzyhdjCVbj-9umos0TTE",
-  authDomain: "learn-lingo-ece72.firebaseapp.com",
-  projectId: "learn-lingo-ece72",
-  storageBucket: "learn-lingo-ece72.appspot.com",
-  messagingSenderId: "1037640854706",
-  appId: "1:1037640854706:web:4ea7b22ea254e2bece6dab",
-  databaseURL:
-    "https://learn-lingo-ece72-default-rtdb.europe-west1.firebasedatabase.app/",
+  apiKey: API_KEY,
+  authDomain: AUTHDOMAIN,
+  projectId: PROJECTID,
+  storageBucket: STORAGEBUCKET,
+  messagingSenderId: MESSAGINGSENDERID,
+  appId: APPID,
+  databaseURL: DATABASEURL,
 };
 
 const app = initializeApp(firebaseConfig);
+
 export const auth = getAuth(app);
 export const database = getDatabase(app);
